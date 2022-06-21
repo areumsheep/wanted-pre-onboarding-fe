@@ -3,11 +3,15 @@ import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
  ${reset}
- * {
-   box-sizing:border-box;
-   outline:none;
-   border:none;
- }
+  
+  :root {
+    --background-color: #fafafa;
+  }
+  * {
+    box-sizing:border-box;
+    outline:none;
+    border:none;
+  }
 `;
 
 export default GlobalStyles;
