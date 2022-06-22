@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --gray-background-color: #fafafa;
     --white-background-color:#ffffff;
     --border-color: #dbdbdb;
+    --feed-left-right-size: 12px;
   }
   * {
     box-sizing:border-box;

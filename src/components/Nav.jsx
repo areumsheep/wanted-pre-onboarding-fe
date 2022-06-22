@@ -5,13 +5,15 @@ import InstagramLogo from '../assets/images/instagram_logo.png';
 const Nav = () => {
   return (
     <Container>
-      <LogoImage src={InstagramLogo} />
-      <StyledInput type="search" name="search-bar" placeholder="검색" />
-      <SyledIconWrapper>
-        <StyledIcon></StyledIcon>
-        <StyledIcon></StyledIcon>
-        <StyledIcon>logout</StyledIcon>
-      </SyledIconWrapper>
+      <Wrapper>
+        <LogoImage src={InstagramLogo} />
+        <StyledInput type="search" name="search-bar" placeholder="검색" />
+        <SyledIconWrapper>
+          <StyledIcon></StyledIcon>
+          <StyledIcon></StyledIcon>
+          <StyledIcon>logout</StyledIcon>
+        </SyledIconWrapper>
+      </Wrapper>
     </Container>
   );
 };
@@ -23,14 +25,20 @@ const Container = styled.div`
   top: 0px;
   height: 55px;
   width: 100%;
+  margin: 0 auto;
   background: var(--white-background-color);
   border-bottom: 1px solid var(--border-color);
+`;
+const Wrapper = styled.div`
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 `;
 const LogoImage = styled.img`
-  height: 70%;
+  height: 65%;
 `;
 const StyledInput = styled.input`
   background: #efefef;
