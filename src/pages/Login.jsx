@@ -18,7 +18,7 @@ export default Login;
 
 const Container = styled.div`
   height: 100vh;
-  background-color: var(--background-color);
+  background-color: var(--gray-background-color);
   padding-top: 50px;
 `;
 const LoginWrapper = styled.div`
@@ -26,8 +26,8 @@ const LoginWrapper = styled.div`
   height: 400px;
   padding: 35px 30px;
   margin: 0 auto;
-  background: #ffffff;
-  border: 1px solid #dbdbdb;
+  background: var(--white-background-color);
+  border: 1px solid var(--border-color);
   box-sizing: border-box;
   text-align: center;
 `;

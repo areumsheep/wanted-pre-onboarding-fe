@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const LoginForm = () => {
@@ -9,7 +10,10 @@ const LoginForm = () => {
         placeholder="전화번호, 사용자 이름 또는 이메일"
       />
       <StyledInput type="password" placeholder="비밀번호" />
-      <StyledButton type="submit">로그인</StyledButton>
+
+      <Link to="/main">
+        <StyledButton type="submit">로그인</StyledButton>
+      </Link>
     </StyledForm>
   );
 };

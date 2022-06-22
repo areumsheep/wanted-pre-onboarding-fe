@@ -5,7 +5,9 @@ const GlobalStyles = createGlobalStyle`
  ${reset}
   
   :root {
-    --background-color: #fafafa;
+    --gray-background-color: #fafafa;
+    --white-background-color:#ffffff;
+    --border-color: #dbdbdb;
   }
   * {
     box-sizing:border-box;
