@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../utils/device';
 import InstagramLogo from '../assets/images/instagram_logo.png';
 
 const Nav = () => {
@@ -30,28 +31,36 @@ const Container = styled.div`
   border-bottom: 1px solid var(--border-color);
 `;
 const Wrapper = styled.div`
-  width: 70%;
+  width: 75%;
   height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media ${device.tablet} {
+    width: 95%;
+  }
 `;
 const LogoImage = styled.img`
   height: 65%;
 `;
 const StyledInput = styled.input`
   background: #efefef;
-  width: 300px;
+  width: 280px;
   height: 70%;
   padding-left: 20px;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 const SyledIconWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
 const StyledIcon = styled.div`
-  --icon-size: 45px;
+  --icon-size: 40px;
 
   background: #efefef;
   width: var(--icon-size);

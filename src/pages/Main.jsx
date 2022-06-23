@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { device } from '../utils/device';
 import Nav from '../components/Nav';
 import Feed from '../components/Feed';
 
@@ -33,6 +34,10 @@ const FeedContainer = styled.div`
   padding: 20px 0px;
 `;
 const FeedWrapper = styled.div`
-  width: 450px;
+  width: 425px;
   margin: 0 auto;
+
+  @media ${device.mobileL} {
+    width: 100%;
+  }
 `;
