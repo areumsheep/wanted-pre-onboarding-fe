@@ -1,8 +1,8 @@
 import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
-import Smile from '../assets/images/smile_button.png';
+import Smile from '../assets/icons/smile_icon.png';
 
-const FeedCommentInput = () => {
+const Comment = () => {
   const textRef = useRef();
   const handleResizeHeight = useCallback(() => {
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
@@ -10,22 +10,40 @@ const FeedCommentInput = () => {
 
   return (
     <Container>
-      <IconButton src={Smile} />
-      <CommentForm>
-        <CommentText
-          ref={textRef}
-          placeholder="댓글 달기..."
-          onInput={handleResizeHeight}
-        ></CommentText>
-        <CommentSend type="submit">게시</CommentSend>
-      </CommentForm>
+      <CommentWrapper>
+        <CommentName>areumsheep</CommentName>
+        <span>안녕하세요!</span>
+      </CommentWrapper>
+      <InputWrapper>
+        <IconButton src={Smile} />
+        <CommentForm>
+          <CommentText
+            ref={textRef}
+            placeholder="댓글 달기..."
+            onInput={handleResizeHeight}
+          ></CommentText>
+          <CommentSend type="submit">게시</CommentSend>
+        </CommentForm>
+      </InputWrapper>
     </Container>
   );
 };
 
-export default FeedCommentInput;
+export default Comment;
 
-const Container = styled.div`
+const Container = styled.div``;
+
+const CommentWrapper = styled.div`
+  font-size: 0.8rem;
+  margin: 4px 0px;
+  padding: 10px 10px;
+`;
+const CommentName = styled.span`
+  font-weight: bold;
+  margin-right: 5px;
+`;
+
+const InputWrapper = styled.div`
   width: 100%;
   padding: 10px var(--feed-left-right-size);
   border-top: 1px solid var(--border-color);
