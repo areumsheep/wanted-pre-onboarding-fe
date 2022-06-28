@@ -4,13 +4,13 @@ import styled from 'styled-components';
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [idCheck, setIdCheck] = useState(false);
-  const [pwCheck, setPwCheck] = useState(false);
+  const [idCheck, setIdCheck] = useState();
+  const [pwCheck, setPwCheck] = useState();
+
   const idRef = useRef(null);
   const pwRef = useRef(null);
 
   useEffect(() => {
-    idRef.current.focus();
     const userId = localStorage.getItem('userId');
     const userPw = localStorage.getItem('userPw');
     if (userId && userPw) {
@@ -21,14 +21,11 @@ const LoginForm = () => {
   const handleIdValidation = (e) => {
     const regEmail =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-    const result = regEmail.test(e.target.value);
-    setIdCheck(result);
-    if (result) pwRef.current.focus();
+    setIdCheck(regEmail.test(e.target.value));
   };
   const handlePwValidation = (e) => {
     const regPassword = /^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
-    const result = regPassword.test(e.target.value);
-    setPwCheck(result);
+    setPwCheck(regPassword.test(e.target.value));
   };
 
   const onSubmit = (e) => {
@@ -48,16 +45,24 @@ const LoginForm = () => {
         type="text"
         name="id"
         ref={idRef}
-        onBlur={handleIdValidation}
-        className={idCheck ? 'input-valid' : 'input-invalid'}
+        onKeyUp={handleIdValidation}
+        className={
+          idCheck === true || idCheck === undefined
+            ? 'input-valid'
+            : 'input-invalid'
+        }
         placeholder="전화번호, 사용자 이름 또는 이메일"
       />
       <input
         type="password"
         name="pw"
         ref={pwRef}
-        onBlur={handlePwValidation}
-        className={pwCheck ? 'input-valid' : 'input-invalid'}
+        onKeyUp={handlePwValidation}
+        className={
+          pwCheck === true || idCheck === undefined
+            ? 'input-valid'
+            : 'input-invalid'
+        }
         placeholder="비밀번호"
       />
 
