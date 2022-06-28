@@ -1,86 +1,130 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import React, { useRef, useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Smile from '../assets/icons/smile_icon.png';
 
 const Comment = ({ data }) => {
+  const [textCheck, setTextCheck] = useState(false);
+  const [comments, setComments] = useState([]);
   const textRef = useRef();
+  const formRef = useRef();
+
+  useEffect(() => {
+    setComments(data);
+  }, []);
+
   const handleResizeHeight = useCallback(() => {
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
   }, []);
+  const onTextInput = (e) => {
+    setTextCheck(textRef.current.value ? true : false);
+    if (e.key === 'Enter') {
+      onSubmit(e);
+    }
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const addComment = {
+      userId: 'anonymous',
+      comment: textRef.current.value,
+    };
+    setComments([...comments, addComment]);
+    formRef.current.reset();
+    textRef.current.style.height = '20px';
+    setTextCheck(false);
+  };
 
   return (
-    <Container>
+    <>
       <CommentContainer>
-        {data &&
-          data.map((value, index) => {
+        {comments &&
+          comments.map((value, index) => {
             return (
               <CommentWrapper key={index}>
                 <CommentName>{value.userId}</CommentName>
-                <span>{value.comment}</span>
+                <CommentText>{value.comment}</CommentText>
               </CommentWrapper>
             );
           })}
       </CommentContainer>
 
       <InputContainer>
-        <IconButton src={Smile} />
-        <CommentForm>
-          <CommentText
+        <img src={Smile} alt="이모티콘 추가" />
+        <CommentForm ref={formRef} onSubmit={onSubmit}>
+          <textarea
             ref={textRef}
             placeholder="댓글 달기..."
+            onKeyUp={onTextInput}
             onInput={handleResizeHeight}
-          ></CommentText>
-          <CommentSend type="submit">게시</CommentSend>
+          ></textarea>
+          <button
+            type="submit"
+            className={textCheck ? 'button-active' : 'button-disabled'}
+          >
+            게시
+          </button>
         </CommentForm>
       </InputContainer>
-    </Container>
+    </>
   );
 };
 
 export default Comment;
 
-const Container = styled.div``;
-
 const CommentContainer = styled.div`
   font-size: 0.8rem;
-  padding: 10px 10px;
+  padding: 12px var(--feed-left-right-size);
 `;
 const CommentWrapper = styled.div`
   margin-bottom: 5px;
+  display: flex;
+  span {
+    display: block;
+  }
 `;
 const CommentName = styled.span`
   font-weight: bold;
   margin-right: 5px;
 `;
-
+const CommentText = styled.span`
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+`;
 const InputContainer = styled.div`
   width: 100%;
   padding: 10px var(--feed-left-right-size);
   border-top: 1px solid var(--border-color);
   display: flex;
-`;
-const IconButton = styled.img`
-  --icon-size: 20px;
-  width: var(--icon-size);
-  height: var(--icon-size);
+
+  img {
+    --icon-size: 20px;
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
 `;
 const CommentForm = styled.form`
   margin-left: 7px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-`;
-const CommentText = styled.textarea`
-  height: 20px;
-  width: 80%;
-  border: none;
-  resize: none;
-  font-family: inherit;
-`;
-const CommentSend = styled.button`
-  width: 37px;
-  height: 100%;
-  background-color: transparent;
-  color: #0095f6;
-  float: right;
+
+  textarea {
+    height: 20px;
+    width: 80%;
+    border: none;
+    resize: none;
+    font-family: inherit;
+  }
+  button {
+    width: 37px;
+    height: 100%;
+    background-color: transparent;
+    float: right;
+  }
+  .button-active {
+    color: #0195f6;
+  }
+  .button-disabled {
+    color: #c0e0fd;
+  }
 `;
