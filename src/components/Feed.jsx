@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Comment from './Comment';
 
@@ -9,6 +9,10 @@ import Send from '../assets/icons/send_icon.png';
 import Bookmark from '../assets/icons/bookmark_icon.png';
 
 const Feed = () => {
+  // useEffect(() => {
+  //   console.log('hi');
+  //   console.log(data);
+  // }, []);
   return (
     <Container>
       <FeedProfile>

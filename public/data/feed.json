@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "userId": "areumsheep",
+    "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
+    "profileImageAlt": "areumsheep",
+    "feedImage": "https://source.unsplash.com/random/600x500",
+    "feedImageAlt": "600x500",
+    "likes": 193,
+    "comments": [
+      {
+        "userId": "robot",
+        "comment": "사진이 정말 멋지네요~"
+      },
+      {
+        "userId": "areumsheep",
+        "comment": "감사합니다^^ 열심히 찍은 보람이 있네요"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": "areumsheep",
+    "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
+    "profileImageAlt": "areumsheep",
+    "feedImage": "https://source.unsplash.com/random/600x500",
+    "feedImageAlt": "600x500",
+    "likes": 193,
+    "comments": [
+      {
+        "userId": "robot",
+        "comment": "사진이 정말 멋지네요~"
+      },
+      {
+        "userId": "areumsheep",
+        "comment": "감사합니다^^ 열심히 찍은 보람이 있네요"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": "areumsheep",
+    "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
+    "profileImageAlt": "areumsheep",
+    "feedImage": "https://source.unsplash.com/random/600x500",
+    "feedImageAlt": "600x500",
+    "likes": 193,
+    "comments": [
+      {
+        "userId": "robot",
+        "comment": "사진이 정말 멋지네요~"
+      },
+      {
+        "userId": "areumsheep",
+        "comment": "감사합니다^^ 열심히 찍은 보람이 있네요"
+      }
+    ]
+  }
+]

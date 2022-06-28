@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { device } from '../utils/device';
+import { getFeeds } from '../utils/api';
 import Nav from '../components/Nav';
 import Feed from '../components/Feed';
 
 const Main = () => {
   const navigate = useNavigate();
+  const [feeds, setFeeds] = useState([]);
+
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     const userPw = localStorage.getItem('userPw');
     if (!(userId && userPw)) {
       navigate('/', { replace: true });
     }
+    getFeeds().then((res) => setFeeds(res));
   }, []);
 
   return (
@@ -20,14 +24,8 @@ const Main = () => {
       <Nav />
       <FeedContainer>
         <FeedWrapper>
-          <Feed />
-          <Feed />
-          <Feed />
-          <Feed />
-          <Feed />
-          <Feed />
-          <Feed />
-          <Feed />
+          {feeds &&
+            feeds.map((feed, index) => <Feed key={index} data={feed} />)}
         </FeedWrapper>
       </FeedContainer>
     </Container>
