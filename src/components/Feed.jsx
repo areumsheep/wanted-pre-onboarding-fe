@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Comment from './Comment';
 
@@ -9,8 +9,10 @@ import Send from '../assets/icons/send_icon.png';
 import Bookmark from '../assets/icons/bookmark_icon.png';
 
 const Feed = ({ data }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <Container>
+    <Container style={{ display: isLoaded ? 'block' : 'none' }}>
       <FeedProfile>
         <ProfileDetail>
           <StyledProfileIcon
@@ -21,7 +23,11 @@ const Feed = ({ data }) => {
         </ProfileDetail>
         <MeatballButton src={Meatball} />
       </FeedProfile>
-      <FeedImage src={data.feedImage} alt={data.feedImageAlt} />
+      <FeedImage
+        src={data.feedImage}
+        alt={data.feedImageAlt}
+        onLoad={() => setIsLoaded(true)}
+      />
 
       <ButtonWrapper>
         <ButtonBefore>
