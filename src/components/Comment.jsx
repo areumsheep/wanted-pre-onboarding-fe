@@ -1,8 +1,8 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useRef, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import Smile from '../assets/icons/smile_icon.png';
 
-const Comment = () => {
+const Comment = ({ data }) => {
   const textRef = useRef();
   const handleResizeHeight = useCallback(() => {
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
@@ -10,11 +10,19 @@ const Comment = () => {
 
   return (
     <Container>
-      <CommentWrapper>
-        <CommentName>areumsheep</CommentName>
-        <span>안녕하세요!</span>
-      </CommentWrapper>
-      <InputWrapper>
+      <CommentContainer>
+        {data &&
+          data.map((value, index) => {
+            return (
+              <CommentWrapper key={index}>
+                <CommentName>{value.userId}</CommentName>
+                <span>{value.comment}</span>
+              </CommentWrapper>
+            );
+          })}
+      </CommentContainer>
+
+      <InputContainer>
         <IconButton src={Smile} />
         <CommentForm>
           <CommentText
@@ -24,7 +32,7 @@ const Comment = () => {
           ></CommentText>
           <CommentSend type="submit">게시</CommentSend>
         </CommentForm>
-      </InputWrapper>
+      </InputContainer>
     </Container>
   );
 };
@@ -33,17 +41,19 @@ export default Comment;
 
 const Container = styled.div``;
 
-const CommentWrapper = styled.div`
+const CommentContainer = styled.div`
   font-size: 0.8rem;
-  margin: 4px 0px;
   padding: 10px 10px;
+`;
+const CommentWrapper = styled.div`
+  margin-bottom: 5px;
 `;
 const CommentName = styled.span`
   font-weight: bold;
   margin-right: 5px;
 `;
 
-const InputWrapper = styled.div`
+const InputContainer = styled.div`
   width: 100%;
   padding: 10px var(--feed-left-right-size);
   border-top: 1px solid var(--border-color);

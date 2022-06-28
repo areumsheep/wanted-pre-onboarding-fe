@@ -3,7 +3,7 @@
     "id": 1,
     "userId": "areumsheep",
     "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
-    "profileImageAlt": "areumsheep",
+    "profileImageAlt": "양아름",
     "feedImage": "https://source.unsplash.com/random/600x500",
     "feedImageAlt": "600x500",
     "likes": 193,
@@ -20,39 +20,39 @@
   },
   {
     "id": 2,
-    "userId": "areumsheep",
-    "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
-    "profileImageAlt": "areumsheep",
-    "feedImage": "https://source.unsplash.com/random/600x500",
-    "feedImageAlt": "600x500",
-    "likes": 193,
+    "userId": "_yujin_an",
+    "profileImage": "http://sports.hankooki.com/news/photo/202205/6796455_971384_329.jpg",
+    "profileImageAlt": "안유진",
+    "feedImage": "https://source.unsplash.com/random/900x500",
+    "feedImageAlt": "900x500",
+    "likes": 20039,
     "comments": [
       {
-        "userId": "robot",
-        "comment": "사진이 정말 멋지네요~"
+        "userId": "areumsheep",
+        "comment": "멋있어요!!!"
       },
       {
-        "userId": "areumsheep",
-        "comment": "감사합니다^^ 열심히 찍은 보람이 있네요"
+        "userId": "robot",
+        "comment": "사진 잘 보고 갑니다~! 너무 좋네요!"
       }
     ]
   },
   {
     "id": 3,
-    "userId": "areumsheep",
-    "profileImage": "https://avatars.githubusercontent.com/u/48716298?v=4",
-    "profileImageAlt": "areumsheep",
-    "feedImage": "https://source.unsplash.com/random/600x500",
-    "feedImageAlt": "600x500",
-    "likes": 193,
+    "userId": "for_everyoung10",
+    "profileImage": "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2022/05/03/f48be46a-68fe-46e1-8eb8-a737bc605bd4.jpg",
+    "profileImageAlt": "장원영",
+    "feedImage": "https://source.unsplash.com/random/700x1080",
+    "feedImageAlt": "700x1080",
+    "likes": 103928,
     "comments": [
       {
         "userId": "robot",
-        "comment": "사진이 정말 멋지네요~"
+        "comment": "우와 굉장합니다!!"
       },
       {
         "userId": "areumsheep",
-        "comment": "감사합니다^^ 열심히 찍은 보람이 있네요"
+        "comment": "따봉!! 👍"
       }
     ]
   }

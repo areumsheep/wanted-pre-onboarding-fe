@@ -8,21 +8,20 @@ import Chat from '../assets/icons/chat_icon.png';
 import Send from '../assets/icons/send_icon.png';
 import Bookmark from '../assets/icons/bookmark_icon.png';
 
-const Feed = () => {
-  // useEffect(() => {
-  //   console.log('hi');
-  //   console.log(data);
-  // }, []);
+const Feed = ({ data }) => {
   return (
     <Container>
       <FeedProfile>
         <ProfileDetail>
-          <StyledProfileIcon />
-          <StyledProfileName>wanted</StyledProfileName>
+          <StyledProfileIcon
+            src={data.profileImage}
+            alt={data.profileImageAlt}
+          />
+          <StyledProfileName>{data.userId}</StyledProfileName>
         </ProfileDetail>
         <MeatballButton src={Meatball} />
       </FeedProfile>
-      <FeedImage src={'https://source.unsplash.com/random/900x500'} />
+      <FeedImage src={data.feedImage} alt={data.feedImageAlt} />
 
       <ButtonWrapper>
         <ButtonBefore>
@@ -32,9 +31,9 @@ const Feed = () => {
         </ButtonBefore>
         <IconButton src={Bookmark} style={{ marginRight: '0px' }} />
       </ButtonWrapper>
-      <LikeText>좋아요 0개</LikeText>
+      <LikeText>좋아요 {data.likes.toLocaleString('ko-KR')}개</LikeText>
 
-      <Comment />
+      <Comment data={data.comments} />
     </Container>
   );
 };
@@ -70,7 +69,7 @@ const IconButton = styled.img`
 const LikeText = styled.p`
   font-size: 0.9rem;
   font-weight: 600;
-  padding: 5px 10px 0px 10px;
+  padding: 6px 10px 0px 10px;
 `;
 const FeedProfile = styled.div`
   padding: 10px;
@@ -82,15 +81,14 @@ const ProfileDetail = styled.div`
   display: flex;
   align-items: center;
 `;
-const StyledProfileIcon = styled.div`
+const StyledProfileIcon = styled.img`
   --profile-icon-size: 32px;
   height: var(--profile-icon-size);
   width: var(--profile-icon-size);
-  background: #d3d3d3;
   border-radius: 50%;
 `;
 const StyledProfileName = styled.span`
-  margin-left: 7px;
+  margin-left: 12px;
   font-size: 0.9rem;
   font-weight: bold;
 `;
