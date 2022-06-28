@@ -40,9 +40,10 @@ const Container = styled.div`
 `;
 const FeedContainer = styled.div`
   padding: 20px 0px;
+  overflow-x: hidden;
 `;
 const FeedWrapper = styled.div`
-  width: 425px;
+  width: 460px;
   margin: 0 auto;
 
   @media ${device.mobileL} {
