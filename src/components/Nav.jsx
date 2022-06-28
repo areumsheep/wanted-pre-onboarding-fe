@@ -2,7 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { device } from '../utils/device';
+
 import InstagramLogo from '../assets/images/instagram_logo.png';
+import Send from '../assets/icons/send_icon.png';
+import Heart from '../assets/icons/heart_icon.png';
+import LogOut from '../assets/icons/logout_icon.png';
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -15,12 +19,12 @@ const Nav = () => {
   return (
     <Container>
       <Wrapper>
-        <LogoImage src={InstagramLogo} />
-        <StyledInput type="search" name="search-bar" placeholder="검색" />
+        <img src={InstagramLogo} />
+        <input type="search" name="search-bar" placeholder="검색" />
         <SyledIconWrapper>
-          <StyledIcon></StyledIcon>
-          <StyledIcon></StyledIcon>
-          <StyledIcon onClick={onLogout}>logout</StyledIcon>
+          <img src={Send} />
+          <img src={Heart} />
+          <img src={LogOut} onClick={onLogout} />
         </SyledIconWrapper>
       </Wrapper>
     </Container>
@@ -39,7 +43,7 @@ const Container = styled.div`
   border-bottom: 1px solid var(--border-color);
 `;
 const Wrapper = styled.div`
-  width: 85%;
+  width: 80%;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -49,32 +53,31 @@ const Wrapper = styled.div`
   @media ${device.tablet} {
     width: 95%;
   }
-`;
-const LogoImage = styled.img`
-  height: 65%;
-`;
-const StyledInput = styled.input`
-  background: #efefef;
-  width: 280px;
-  height: 70%;
-  padding-left: 20px;
 
-  @media ${device.tablet} {
-    display: none;
+  img {
+    height: 63%;
+  }
+  input {
+    background: #efefef;
+    width: 280px;
+    height: 70%;
+    padding-left: 20px;
+
+    @media ${device.tablet} {
+      display: none;
+    }
   }
 `;
 const SyledIconWrapper = styled.div`
   display: flex;
   align-items: center;
-`;
-const StyledIcon = styled.div`
-  --icon-size: 40px;
-  cursor: pointer;
-  background: #efefef;
-  width: var(--icon-size);
-  height: var(--icon-size);
-  line-height: var(--icon-size);
-  margin: 0px 3px;
-  font-size: 0.8rem;
-  text-align: center;
+
+  img {
+    --icon-size: 27px;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin: 0px 7px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
 `;
