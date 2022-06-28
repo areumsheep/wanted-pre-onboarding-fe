@@ -1,9 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { device } from '../utils/device';
 import InstagramLogo from '../assets/images/instagram_logo.png';
 
 const Nav = () => {
+  const navigate = useNavigate();
+  const onLogout = (e) => {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userPw');
+    navigate('/');
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -12,7 +20,7 @@ const Nav = () => {
         <SyledIconWrapper>
           <StyledIcon></StyledIcon>
           <StyledIcon></StyledIcon>
-          <StyledIcon>logout</StyledIcon>
+          <StyledIcon onClick={onLogout}>logout</StyledIcon>
         </SyledIconWrapper>
       </Wrapper>
     </Container>
@@ -61,7 +69,7 @@ const SyledIconWrapper = styled.div`
 `;
 const StyledIcon = styled.div`
   --icon-size: 40px;
-
+  cursor: pointer;
   background: #efefef;
   width: var(--icon-size);
   height: var(--icon-size);

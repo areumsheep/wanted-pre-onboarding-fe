@@ -15,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
     outline:none;
     border:none;
   }
+  img {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;
