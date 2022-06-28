@@ -47,6 +47,6 @@ const FeedWrapper = styled.div`
   margin: 0 auto;
 
   @media ${device.mobileL} {
-    width: 100%;
+    width: 95%;
   }
 `;
