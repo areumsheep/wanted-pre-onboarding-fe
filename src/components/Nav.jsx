@@ -39,7 +39,7 @@ const Container = styled.div`
   border-bottom: 1px solid var(--border-color);
 `;
 const Wrapper = styled.div`
-  width: 75%;
+  width: 85%;
   height: 100%;
   margin: 0 auto;
   display: flex;
