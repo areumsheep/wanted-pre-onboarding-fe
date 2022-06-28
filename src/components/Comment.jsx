@@ -15,10 +15,10 @@ const Comment = ({ data }) => {
   const handleResizeHeight = useCallback(() => {
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
   }, []);
-  const onTextInput = (e) => {
+  const onTextInput = async (e) => {
     setTextCheck(textRef.current.value ? true : false);
     if (e.key === 'Enter') {
-      onSubmit(e);
+      await onSubmit(e);
     }
   };
   const onSubmit = (e) => {
@@ -58,7 +58,7 @@ const Comment = ({ data }) => {
           ></textarea>
           <button
             type="submit"
-            className={textCheck ? 'button-active' : 'button-disabled'}
+            style={{ color: textCheck ? '#0195f6' : '#c0e0fd' }}
           >
             게시
           </button>
@@ -102,6 +102,7 @@ const InputContainer = styled.div`
     height: var(--icon-size);
   }
 `;
+
 const CommentForm = styled.form`
   margin-left: 7px;
   width: 100%;
@@ -120,11 +121,5 @@ const CommentForm = styled.form`
     height: 100%;
     background-color: transparent;
     float: right;
-  }
-  .button-active {
-    color: #0195f6;
-  }
-  .button-disabled {
-    color: #c0e0fd;
   }
 `;

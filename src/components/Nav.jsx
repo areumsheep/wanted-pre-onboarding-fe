@@ -61,7 +61,7 @@ const Wrapper = styled.div`
     background: #efefef;
     width: 280px;
     height: 70%;
-    padding-left: 20px;
+    padding: 0px 10px;
 
     @media ${device.tablet} {
       display: none;

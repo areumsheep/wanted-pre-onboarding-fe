@@ -68,7 +68,7 @@ const LoginForm = () => {
 
       <button
         type="submit"
-        className={idCheck && pwCheck ? 'button-active' : 'button-disabled'}
+        style={{ background: idCheck && pwCheck ? '#0095f6' : '#c0dffd' }}
       >
         로그인
       </button>
@@ -100,11 +100,5 @@ const StyledForm = styled.form`
     margin: 10px 0px;
     padding: 10px 0px;
     border-radius: 5px;
-  }
-  .button-active {
-    background: #0095f6;
-  }
-  .button-disabled {
-    background: #c0dffd;
   }
 `;
