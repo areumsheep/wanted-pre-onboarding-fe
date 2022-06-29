@@ -104,20 +104,21 @@ const InputContainer = styled.div`
 `;
 
 const CommentForm = styled.form`
-  margin-left: 7px;
+  margin-left: 8px;
   width: 100%;
   display: flex;
   justify-content: space-between;
 
   textarea {
     height: 20px;
-    width: 80%;
+    width: calc(100% - 45px);
     border: none;
     resize: none;
     font-family: inherit;
+    padding: 0px;
   }
   button {
-    width: 37px;
+    width: 40px;
     height: 100%;
     background-color: transparent;
     float: right;
